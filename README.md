@@ -1,7 +1,6 @@
 docker-backup
 =============
-Simple utility for backing up a Docker data container (optionally to s3).
-
+Simple utility for backing up a Docker data container to a Singapore S3 server
 other solutions
 ---------------
 There are a number of existing solutions available which typically operate in a
