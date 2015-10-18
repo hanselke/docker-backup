@@ -18,10 +18,10 @@ fi
 
 if [ "$1" = "backup" ]; then
   /root/bin/backup.sh backup "$file"
-  s3cmd -bucket-location="ap-southeast-1" --access_key="$ACCESS_KEY" --secret_key="$SECRET_KEY" \
+  s3cmd --bucket-location="ap-southeast-1" --access_key="$ACCESS_KEY" --secret_key="$SECRET_KEY" \
     -c /dev/null $S3CMD_OPTS put "/backup/$file" $BUCKET
 elif [ "$1" = "restore" ]; then
-  s3cmd -bucket-location="ap-southeast-1" --access_key="$ACCESS_KEY" --secret_key="$SECRET_KEY" \
+  s3cmd --bucket-location="ap-southeast-1" --access_key="$ACCESS_KEY" --secret_key="$SECRET_KEY" \
     -c /dev/null $S3CMD_OPTS get "$BUCKET$file" "/backup/$file"
   /root/bin/backup.sh restore "$file"
 fi
